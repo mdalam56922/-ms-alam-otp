@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MS ALAM OTP</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+ background:#080d19;
+ color:#fff;
+ font-family:Arial,sans-serif;
+ padding:20px;
+ min-height:100vh;
+}
+
+.header{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+
+.logo{
+ font-size:21px;
+ font-weight:800;
+ color:#62e6d1;
+ letter-spacing:1px;
+}
+
+.profile{
+ background:#18243a;
+ padding:11px 15px;
+ border-radius:30px;
+ font-size:13px;
+}
+
+.welcome{
+ margin-top:30px;
+ color:#91a6c5;
+ font-size:12px;
+ letter-spacing:2px;
+}
+
+h1{
+ font-size:27px;
+ margin-top:8px;
+}
+
+.subtitle{
+ color:#91a6c5;
+ font-size:13px;
+ margin-top:7px;
+}
+
+.balance{
+ margin-top:24px;
+ padding:23px;
+ border-radius:22px;
+ background:linear-gradient(130deg,#12566a,#30327b);
+ border:1px solid #426b91;
+}
+
+.balance-label{
+ color:#c6e7ee;
+ font-size:12px;
+}
+
+.amount{
+ font-size:34px;
+ font-weight:bold;
+ margin:12px 0;
+}
+
+.balance-bottom{
+ color:#c6e7ee;
+ font-size:12px;
+}
+
+.section{
+ margin:30px 0 15px;
+ font-size:18px;
+ font-weight:bold;
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:13px;
+}
+
+.tile{
+ background:linear-gradient(145deg,#17253d,#101a2c);
+ border:1px solid #293c59;
+ border-radius:19px;
+ padding:18px 15px;
+ min-height:120px;
+ cursor:pointer;
+ transition:.2s;
+}
+
+.tile:active{
+ transform:scale(.96);
+}
+
+.emoji{
+ font-size:29px;
+}
+
+.tile h3{
+ font-size:15px;
+ margin-top:13px;
+}
+
+.tile p{
+ color:#91a5c1;
+ font-size:11px;
+ margin-top:6px;
+}
+
+.notice{
+ margin-top:23px;
+ padding:15px;
+ background:#17253a;
+ border-radius:15px;
+ color:#b7c8df;
+ font-size:12px;
+ line-height:1.6;
+}
+
+.footer{
+ text-align:center;
+ color:#6e829e;
+ font-size:11px;
+ margin:28px 0 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+ <div class="logo">✦ MS ALAM OTP</div>
+ <div class="profile">👤 My Profile</div>
+</div>
+
+<div class="welcome">WELCOME BACK</div>
+<h1>OTP Dashboard</h1>
+<div class="subtitle">Your premium service dashboard</div>
+
+<div class="balance">
+ <div class="balance-label">💎 YOUR BALANCE</div>
+ <div class="amount">$0.00</div>
+ <div class="balance-bottom">Available Balance</div>
+</div>
+
+<div class="section">⚡ Main Services</div>
+
+<div class="grid">
+
+ <div class="tile" onclick="showMessage('Get Number')">
+  <div class="emoji">📲</div>
+  <h3>Get Number</h3>
+  <p>Get a new number</p>
+ </div>
+
+ <div class="tile" onclick="showMessage('Search Number')">
+  <div class="emoji">🔎</div>
+  <h3>Search Number</h3>
+  <p>Find available numbers</p>
+ </div>
+
+ <div class="tile" onclick="showMessage('Traffic')">
+  <div class="emoji">🌐</div>
+  <h3>Traffic</h3>
+  <p>View your activity</p>
+ </div>
+
+ <div class="tile" onclick="showMessage('2FA Online')">
+  <div class="emoji">🛡️</div>
+  <h3>2FA Online</h3>
+  <p>Authorized 2FA services</p>
+ </div>
+
+ <div class="tile" onclick="showMessage('Refer & Earn')">
+  <div class="emoji">🎁</div>
+  <h3>Refer & Earn</h3>
+  <p>Invite your friends</p>
+ </div>
+
+ <div class="tile" onclick="showMessage('My Profile')">
+  <div class="emoji">👤</div>
+  <h3>My Profile</h3>
+  <p>Your account details</p>
+ </div>
+
+ <div class="tile" onclick="showMessage('Leaderboard')">
+  <div class="emoji">🏆</div>
+  <h3>Leaderboard</h3>
+  <p>Top members</p>
+ </div>
+
+ <div class="tile" onclick="showMessage('Support')">
+  <div class="emoji">🎧</div>
+  <h3>Support</h3>
+  <p>Contact our team</p>
+ </div>
+
+</div>
+
+<div class="notice">
+ 🔐 Your security matters. Use this service only for
+ accounts and verification processes you are authorized to access.
+</div>
+
+<div class="footer">
+ MS ALAM OTP • PREMIUM EXPERIENCE
+</div>
+
+<script>
+function showMessage(name){
+ const tg = window.Telegram?.WebApp;
+
+ if(tg && tg.showAlert){
+   tg.showAlert(name + " service will be available soon.");
+ }else{
+   alert(name + " service will be available soon.");
+ }
+}
+
+const tg = window.Telegram?.WebApp;
+
+if(tg){
+ tg.ready();
+ tg.expand();
+}
+</script>
+
+</body>
+</html>
